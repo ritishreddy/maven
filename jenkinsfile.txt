@@ -1,0 +1,13 @@
+node() {
+
+stage("Git checkout"){
+checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'e6425f26-47de-4a9d-8671-cd6076d95a03', url: 'https://github.com/ritishreddy/maven.git']])
+
+}
+
+stage("Maven Build") {
+    sh "mvn package"
+
+}
+
+}
